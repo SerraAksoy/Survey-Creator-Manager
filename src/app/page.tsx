@@ -1,6 +1,6 @@
-import Image from "next/image";
+//import Image from "next/image";
 import FormGenerator from "@/app/form-generator";
-import {Button} from "@/components/ui/button";
+//import {Button} from "@/components/ui/button";
 import Header from "@/components/ui/header";
 import  {SessionProvider} from 'next-auth/react';
 

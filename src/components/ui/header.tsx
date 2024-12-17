@@ -1,11 +1,11 @@
 import React from "react";
-import { auth,signIn,signOut } from "@/auth";
+import { auth,signOut } from "@/auth";
 import {Button} from "./button";
 import Image from 'next/image';
 import Link from 'next/link';
-import {useSession} from "next-auth/react";
+//import {useSession} from "next-auth/react";
 
-type Props = {}
+
 function SignOut() {
     return (
         <form action={async ()=> {
@@ -17,7 +17,7 @@ function SignOut() {
     )
 }
 
-const Header = async (props:Props) => {
+const Header = async () => {
     const session = await auth();
     console.log(session);
     return (
