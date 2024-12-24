@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import DropdownUserMenu from "./DropdownMenu";  // İstemci bileşenini dahil ettik
 
-type Props = {};
 
 function SignOut() {
     return (
@@ -21,7 +20,7 @@ function SignOut() {
     );
 }
 
-const Header = async (props: Props) => {
+const Header = async () => {
     const session = await auth();
     console.log(session);
     return (
@@ -62,5 +61,4 @@ const Header = async (props: Props) => {
         </header>
     );
 };
-
 export default Header;

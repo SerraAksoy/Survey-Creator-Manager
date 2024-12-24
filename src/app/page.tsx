@@ -7,7 +7,6 @@ export default function Home() {
   return (
       <SessionProvider>
           <Header/>
-
           <HeroSection/>
           <main className="flex flex-col gap-8 row-start-2 items-center ">
               <FormGenerator/>

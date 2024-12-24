@@ -16,12 +16,11 @@ import {useSession,signIn} from "next-auth/react";
 
 const initialState:{
     message:string;
-    data?:any;
+    data?:object;
 }={
     message:"",
 }
 
-type Props = {}
 export function SubmitButton(){
     const {pending}=useFormStatus();
     return (
@@ -30,7 +29,7 @@ export function SubmitButton(){
         </Button>
     );
 }
-const FormGenerator=(props:Props) => {
+const FormGenerator=() => {
     const [state, formAction] = React.useActionState(generateForm, initialState);
     const [open, setOpen] = useState(false);
     const session=useSession();
