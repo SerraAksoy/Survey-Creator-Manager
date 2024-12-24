@@ -10,11 +10,9 @@ import {
 } from "@/components/ui/dialog"
 import {Button} from "@/components/ui/button";
 import {Textarea} from "@/components/ui/textarea";
-
 import {generateForm} from "@/actions/generateForm";
-import{useFormState,useFormStatus} from "react-dom";
+import{useFormStatus} from "react-dom";
 import {useSession,signIn} from "next-auth/react";
-
 
 const initialState:{
     message:string;
@@ -33,7 +31,7 @@ export function SubmitButton(){
     );
 }
 const FormGenerator=(props:Props) => {
-    const [state,formAction]=useFormState(generateForm,initialState);
+    const [state, formAction] = React.useActionState(generateForm, initialState);
     const [open, setOpen] = useState(false);
     const session=useSession();
     console.log(session);
@@ -54,7 +52,9 @@ const FormGenerator=(props:Props) => {
     }
     return (
         <Dialog open={open} onOpenChange={setOpen}>
-            <Button  onClick={onFormCreate}>Form Oluştur</Button>
+            <Button  className="bg-gradient-to-r from-[#DD65B3] to-[#FF914F] py-3 px-4 mx-3 rounded-md" onClick={onFormCreate} >
+                Form Oluştur
+            </Button>
             <DialogContent className={"sm:max-w-[425px]"} >
                 <DialogHeader>
                     <DialogTitle>Yeni Form Oluştur</DialogTitle>
@@ -63,10 +63,13 @@ const FormGenerator=(props:Props) => {
                     <div className={'grid-gap-4'}>
                         <Textarea id={"description"} name={"description"} required placeholder={"Formunun ne hakkında olduğunu ve kimlere hitap ettiğini bizlere açıklayan bir metin yazmanı rica ediyoruz.✨"}></Textarea>
                     </div>
-
-                <DialogFooter>
+                <DialogFooter className={"m-5"}>
                     <SubmitButton/>
-                    <Button variant={"link"}>El İle Oluştur</Button>
+                    <Button className="bg-gradient-to-r from-[#DD65B3] to-[#FF914F] py-3 px-4 mx-3 rounded-md text-white" variant={"link"}>
+                        <a href={"./createform"}>
+                            El İle Oluştur
+                        </a>
+                    </Button>
                 </DialogFooter>
                 </form>
             </DialogContent>
